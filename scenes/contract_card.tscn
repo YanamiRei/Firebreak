@@ -37,7 +37,9 @@ theme_override_constants/separation = 8
 [node name="TitleLabel" type="Label" parent="Margin/Box" unique_id=214021571]
 layout_mode = 2
 theme_type_variation = &"TitleLabel"
-theme_override_font_sizes/font_size = 22
+theme_override_colors/font_outline_color = Color(0.9647059, 0.90588236, 0.7411765, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 34
 horizontal_alignment = 1
 
 [node name="FlavourLabel" type="Label" parent="Margin/Box" unique_id=2024485901]
