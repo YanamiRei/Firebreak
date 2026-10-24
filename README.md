@@ -1,133 +1,23 @@
-# Godot 4 Game Jam Starter Kit
-
-A battle-tested, production-ready starter kit for Godot 4.x (v4.3 / v4.4 / v4.7+).
-Designed so you can spend your 48–72 game jam hours building fun gameplay, instead of re-inventing menus, audio managers, jump physics, camera shake, and settings menus from scratch.
-
-## 60-Second Quickstart
-Open Godot 4: 
--Click Import
--Select the folder containing project.godot.
-
-Press F5 (Run Project):
--Click anywhere on the Click to Start screen (this unlocks browser audio for web builds).
--Click through menus to explore setup
-
-## Explore the Showcase Playground:
-
-## Controls & Debugging Shortcuts
-Action	Keyboard / Mouse
-Move	W, A, S, D or Arrow Keys
-Pause Game	Escape	
-Instant Jam Restart	R (Instantly reloads gameplay)
-
-## How to Build Your Jam Game in 5 Minutes
-
-### Connect Your Level to the Main Menu
-Create your new level scene (e.g. res://scenes/levels/level_1.tscn).
-Open res://scenes/menus/main_menu.gd and change:
-
-func _on_play_pressed() -> void:
-	SceneManager.fade_scene("res://scenes/main.tscn")
-
-That's it! Your game now has a full title screen, options menu, and game over screen wired up automatically.
-To add in the Pause Menu, add it under your HUD/Canvas Layer in your level.
-
-## Copy-Paste Systems Cheatsheet
-
-Everything in this starter kit is designed to be called with a single line of clean GDScript.
-
-### 1. Audio Manager (AudioManager)
-
-All audio routes through a calibrated safe bus layout (Master set to -6 dB to prevent deafening players on itch.io).
-
-Play UI Sounds
-**Available: "click", "hover", "error"**
-AudioManager.play_ui("error")
-These can be customized in the \autoloads\audio_manager.tscn Scene
-
-Play custom audio file
-AudioManager.play_sfx(preload("res://my_sound.wav"))
-
-Play with custom pitch variance (e.g. 0.08 range) and volume offset
-AudioManager.play_sfx(preload("res://my_sound.wav"), 0.1, -2.0)
-
-Crossfade music smoothly
-AudioManager.play_music(preload("res://my_music.ogg"))
-
-Duck music during pause/menus (-12 dB relative attenuation)
-AudioManager.duck_music(true)   # Menu opened
-AudioManager.duck_music(false)  # Menu closed
-
-### 2. Scene Transitions (SceneManager)
-
-Smooth fade-to-black scene change
-SceneManager.fade_scene("res://scenes/levels/level_2.tscn")
-
-Smooth wipe fade-to-black scene change (To the Right for example)
-SceneManager.fade_scene("res://scenes/levels/level_2.tscn", Vector2.RIGHT)
-
-Instant reload current level
-SceneManager.reload_current_scene()
-
-Reload last gameplay level (used on Game Over retry)
-SceneManager.reload_last_gameplay_scene()
-(Pressing R at any time during gameplay triggers an instant reload for rapid level testing).
-
-## Project Directory Structure
-
-res://
--actors/
- -enemies/               # Enemy Scenes and Files
-  -players/              # Player Scenes and Files
--assets/
- -audio/                 # Music and SFX files
- -fonts/                 # Font files
-  -ui/                   # Icons and backgrounds
--autoload/
- -audio_manager.gd       # Buses, crossfade, pitch variance, concurrency limiter
- -audio_manager.tscn     # Autoload Scene with @exports to override default sounds
- -event_manager.gd       # Central decoupled signal bus
- -save_manager.gd        # ConfigFile persistence (Audio, Video, Max FPS, etc)
- -scene_manager.gd       # Fade transitions & instant reload
- -scene_manager.tscn     # ColorRects used to complete directional fades
--components/
- -combat/                # Place holder
- -juice/                 # Place holder
--scenes/
- -levels/
-  -playground.gd         # Sample Level Script
-  -playground.tscn       # Sample Scene with Pause Menu
- -menus/
-  -click_to_start.tscn   # Web AudioContext unlocker (run/main_scene)
-  -credits.tscn          # Auto-scrolling credits screen
-  -credits.txt           # Plain-text source file for easy editing
-  -game_over_menu.tscn   # Try Again (R), Main Menu
-  -how_to_play.tscn      # Controls & objective card
-  -main_menu.tscn        # Play, Options, How to Play, Credits, Quit
-  -options_menu.tscn     # Volumes, Fullscreen, VSync, Max FPS dropdown
-  -pause_menu.tscn       # In-game pause overlay
--systems/
- -hud/
-  -floating_text/        # Place holder
-  -health_bar/           # Place holder
- -state_machine/         # Place holder
- -ui/
-  -panel_container.theme # Theme for all the buttons/Panels in the template
-  -ui_button.gd          # UI Button Class to map Audio and Grow/Shrink
--web_export/             # Place holder for Exported Project
--default_bus_layout.tres # Master, Music, SFX, UI buses
--export_presets.cfg      # Single-threaded web export preset
--project.godot           # Pre-configured input map, autoloads, resolution
--Submission_Checklist.md # Pre-jam triage & itch.io publishing checklist
-
-## Publishing to itch.io (Web Export)
-Pre-configured Preset: 
-Open Project.
-Click Export. 
-
-Audio Unlocking: The main scene is set to click_to_start.tscn to satisfy browser autoplay restrictions.
-
-Publishing Checklist: Read SUBMISSION_CHECKLIST.md for recommended embed dimensions (1280x720), thumbnail specs, and last-minute pre-jam sanity audits.
-
-## License
-This starter kit is released under the MIT License. Use it for free in any personal, commercial, or game jam project. No attribution required (though a shoutout or Tip is always appreciated!).
+<p><em>Wall yourself in. Beat the fire down.</em></p>
+<h2>The Story</h2>
+<p>It's 4:58 on a Friday, and you're stuck on the top floor of the office. The sprinklers are "under review", the fire alarm is "a rumour", and the whole building is burning from the outside in.</p>
+<p>The only way out is down. Wall yourself into a pocket of the office, let the water fill it, grab what you can, and reach the stairs before the fire does. Then do it again on the next floor, and the next.</p>
+<h2>Each Floor</h2>
+<ol><li>Look at the floor. The pre-placed walls can't be moved. The staircase is somewhere in the maze.</li><li>Place your own wooden walls to seal off an area that includes you and a staircase.</li><li>Press <strong>Submit</strong>. Water floods the sealed area and collects every item inside.</li><li>Fire then sweeps in from outside and burns everything the water doesn't cover, including the wooden walls and any items you left out there.</li><li>If you're sealed in with stairs, you go down. If you're sealed in with no stairs, a Portable Stairs is used if you have one. If not, or if you weren't sealed in at all, it's game over.</li></ol>
+<p>You only get a limited number of walls per floor. A few unused walls carry over to the next floor. The bigger the sealed area, the more score you earn, and the fire is already creeping toward the building, so don't dawdle. If it reaches the building before you press Submit, whatever you've placed is submitted for you.</p>
+<h2>Controls</h2>
+<table><tbody><tr><th>Input</th><th>Action</th></tr><tr><td><strong>Left click</strong></td><td>Place a wall, or remove one you placed</td></tr><tr><td><strong>Right click</strong></td><td>Remove a wall</td></tr><tr><td><strong>Submit / Reset</strong></td><td>The on-screen buttons</td></tr><tr><td><strong>ESC or P</strong></td><td>Pause</td></tr></tbody></table>
+<h2>Items</h2>
+<table><tbody><tr><th>Item</th><th>What it does</th></tr><tr><td><strong>Stairs</strong></td><td>The way down. Get inside your sealed area to use it.</td></tr><tr><td><strong>Wood Planks</strong></td><td>Lumber from the supply closet. +3 walls next floor.</td></tr><tr><td><strong>Foam Wall Kit</strong></td><td>Quick-set foam from the facilities cart. +2 walls next floor.</td></tr><tr><td><strong>Portable Stairs</strong></td><td>A fold-out emergency staircase. Used automatically if you're sealed in with no stairs.</td></tr><tr><td><strong>Employee Plaque</strong></td><td>Employee of the Month. Management will pay for this. +15 score.</td></tr><tr><td><strong>Pink Slip</strong></td><td>It looks like a gift, but it's a termination notice. -3 walls.</td></tr></tbody></table>
+<h2>Masks</h2>
+<p>Not everything is what it looks like. Items can wear the face of another item, and Pink Slips <em>always</em> do. Nothing is revealed until the water reaches it. Then the mask comes off: <strong>UNMASKED!</strong> for a good surprise, <strong>CURSED!</strong> for a bad one.</p>
+<p>A small badge on an item is a tell: that one is wearing a mask. Not every disguise has one, so trust nothing.</p>
+<h2>Contracts</h2>
+<p>Every couple of floors, the company offers you a contract. Each one gives you something now, asks something of you within a few floors, and takes walls (sometimes score) if you break it. You can decline, but the rewards are tempting.</p>
+<table><tbody><tr><th>Contract</th><th>The pitch</th></tr><tr><td><strong>Austerity</strong></td><td>Budget cuts. Make do with less.</td></tr><tr><td><strong>Corner Office</strong></td><td>You're going places. Take up some space.</td></tr><tr><td><strong>Hoarder</strong></td><td>Everything not nailed down belongs to the company. Take it.</td></tr><tr><td><strong>Fire Insurance</strong></td><td>Do it cheap, and we'll cover your exit.</td></tr><tr><td><strong>Overtime</strong></td><td>Management needs a bigger footprint. Stay late.</td></tr><tr><td><strong>Signing Bonus</strong></td><td>A generous welcome package. Don't read too much into it.</td></tr><tr><td><strong>Standard Terms</strong></td><td>Our usual terms. Nothing unusual, nothing to see here.</td></tr><tr><td><strong>Rush Order</strong></td><td>The client needs it yesterday. We told them you'd manage.</td></tr><tr><td><strong>Liability Waiver</strong></td><td>A quick signature and a lot of trust. Initial here, here and here.</td></tr><tr><td><strong>Employee Benefits</strong></td><td>Management is feeling generous this quarter. Enjoy it while it lasts.</td></tr></tbody></table>
+<p>Some contracts have <strong>fine print</strong>, shown as a row of # marks. You won't know what it says until you sign, and it could help you or hurt you. You can't take a contract back once you've signed it.</p>
+<h2>Tips</h2>
+<ul><li>Smaller pockets cost fewer walls. Bigger pockets earn more score and catch more items.</li><li>Doorways are cheap to block, so look for the narrow gaps first.</li><li>Keep a Portable Stairs in reserve. It is the one thing that rescues a bad seal.</li></ul>
+<h2>Credits</h2>
+<p>Programming and art by YanamiRei. Built in Godot 4 with the Godot Game Jam Starter Kit by NyeDigitalGames / James Nye.</p>
+<p>Music and sound (all CC0, from OpenGameArt.org): <em>Somewhere in the Elevator</em> by Peachtea, <em>Hurry</em> by Umplix, <em>Game Over</em> by Kistol, <em>Catching fire</em> by themightyglider, <em>Fireplace Sound Loop</em> by PagDev, and <em>Sirens and Alarm Noise</em> by aquinn.</p>
