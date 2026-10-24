@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dae3dx6i4goru"]
+
+[ext_resource type="Texture2D" uid="uid://cg03eag5yjb45" path="res://art/icon_planks.png" id="1_160jg"]
+[ext_resource type="Script" uid="uid://iehv4f2nd0sx" path="res://scripts/item_data.gd" id="1_p268s"]
+
+[resource]
+script = ExtResource("1_p268s")
+display_name = "Wood Planks"
+description = "Lumber from the supply closet. +3 walls next floor."
+icon = ExtResource("1_160jg")
+amount = 3
+spawn_weight = 3.0
+metadata/_custom_type_script = "uid://iehv4f2nd0sx"

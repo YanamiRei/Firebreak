@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="LevelParams" format=3 uid="uid://oqwasirtm4m3"]
+
+[ext_resource type="Script" uid="uid://bme03v0xwtiwj" path="res://scripts/level_params.gd" id="1_dprp2"]
+
+[resource]
+script = ExtResource("1_dprp2")
+grid_size = Vector2i(21, 21)
+lattice_spacing = 4
+edge_gap_chance = 0.03
+edge_half_chance = 0.693
+item_count = 14
+min_reachable_items = 1
+max_carry_over = 9
+walls_per_floor = 5
+metadata/_custom_type_script = "uid://bme03v0xwtiwj"

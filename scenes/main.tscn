@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://bw8livy84ck6r"]
+
+[ext_resource type="Script" uid="uid://ordytoy3peyn" path="res://scripts/board.gd" id="1_jyhfs"]
+[ext_resource type="TileSet" uid="uid://dt3npl40bxrg4" path="res://resources/tileset.tres" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://c0b6ht3hi0kng" path="res://actors/item.tscn" id="2_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://75gak8bnqxca" path="res://art/player.png" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://gajh2xijpy0r" path="res://actors/water_tile.tscn" id="3_tipki"]
+[ext_resource type="PackedScene" uid="uid://bluty4hoi5w11" path="res://actors/fire_tile.tscn" id="4_85g3d"]
+[ext_resource type="Texture2D" uid="uid://bjo7md2prouxl" path="res://art/cursor.png" id="4_tefeu"]
+[ext_resource type="Resource" uid="uid://oqwasirtm4m3" path="res://resources/level_params.tres" id="5_jbj1t"]
+[ext_resource type="Resource" uid="uid://d07rdw6qr76bo" path="res://resources/items/stairs.tres" id="6_muem4"]
+[ext_resource type="Script" uid="uid://iehv4f2nd0sx" path="res://scripts/item_data.gd" id="7_dp3eg"]
+[ext_resource type="Resource" uid="uid://eqj0smxhweqj" path="res://resources/items/employee_plaque.tres" id="8_0ld40"]
+[ext_resource type="PackedScene" uid="uid://ic5vln387bo2" path="res://scenes/hud.tscn" id="8_tipki"]
+[ext_resource type="Resource" uid="uid://cbqxl4lxck8ol" path="res://resources/items/foam_wall_kit.tres" id="9_gqmmt"]
+[ext_resource type="Resource" uid="uid://hlo87io445nt" path="res://resources/items/pink_slip.tres" id="10_yc10j"]
+[ext_resource type="Resource" uid="uid://c5ugvgd6ogg1" path="res://resources/items/portable_stairs.tres" id="11_jscy8"]
+[ext_resource type="Resource" uid="uid://dae3dx6i4goru" path="res://resources/items/wood_planks.tres" id="12_pm3ni"]
+[ext_resource type="Script" uid="uid://rwo6qn3o2qrk" path="res://scripts/contract_data.gd" id="13_jscy8"]
+[ext_resource type="Resource" uid="uid://dauqwre1ividt" path="res://resources/contracts/overtime.tres" id="14_pm3ni"]
+[ext_resource type="Resource" uid="uid://blc46o2v2hcye" path="res://resources/contracts/hoarder.tres" id="15_y6deb"]
+[ext_resource type="Resource" uid="uid://iju3oro22w15" path="res://resources/contracts/austerity.tres" id="16_og1vs"]
+[ext_resource type="Resource" uid="uid://cwmtelyuuvrk7" path="res://resources/contracts/corner.tres" id="17_2wyq8"]
+[ext_resource type="Resource" uid="uid://thb023usjiix" path="res://resources/contracts/insurance.tres" id="18_vxglm"]
+[ext_resource type="PackedScene" uid="uid://bs23jkjc0mkkl" path="res://scenes/menus/pause_menu.tscn" id="19_pause"]
+[ext_resource type="Resource" uid="uid://cecy2o3janbvm" path="res://resources/contracts/employee_benefits.tres" id="19_yq6so"]
+[ext_resource type="Resource" uid="uid://bsyukiuexa2k1" path="res://resources/contracts/liability_waiver.tres" id="20_fv21b"]
+[ext_resource type="AudioStream" path="res://assets/audio/game_hurry.ogg" id="20_music"]
+[ext_resource type="AudioStream" path="res://assets/audio/game_over_tragic.ogg" id="24_gameover"]
+[ext_resource type="Resource" uid="uid://d2gxi141ncnua" path="res://resources/contracts/rush_order.tres" id="21_tel4y"]
+[ext_resource type="Resource" uid="uid://bomd1pn3cpmij" path="res://resources/contracts/signing_bonus.tres" id="22_qkpxi"]
+[ext_resource type="Resource" uid="uid://bhn2olbadphpo" path="res://resources/contracts/standard_terms.tres" id="23_5q0nq"]
+
+[sub_resource type="Gradient" id="Gradient_pglow"]
+offsets = PackedFloat32Array(0, 0.4, 1)
+colors = PackedColorArray(0.941176, 0.721569, 0.290196, 0.9, 0.941176, 0.721569, 0.290196, 0.4, 0.941176, 0.721569, 0.290196, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pglow"]
+gradient = SubResource("Gradient_pglow")
+width = 64
+height = 64
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Shader" id="Shader_pglow"]
+code = "shader_type canvas_item;
+render_mode blend_add;
+
+void fragment() {
+	COLOR.a *= 0.7 + 0.3 * sin(TIME * 4.0);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pglow"]
+shader = SubResource("Shader_pglow")
+
+[node name="Main" type="Node2D" unique_id=1178584761]
+
+[node name="Board" type="Node2D" parent="." unique_id=269317759 node_paths=PackedStringArray("hud", "floor_layer", "obstacle_layer", "wall_layer", "fx_root", "entity_root", "player", "cursor", "camera")]
+scale = Vector2(1.1, 1.1)
+script = ExtResource("1_jyhfs")
+hud = NodePath("../Hud")
+floor_layer = NodePath("Floor")
+obstacle_layer = NodePath("Obstacles")
+wall_layer = NodePath("Walls")
+fx_root = NodePath("Fx")
+entity_root = NodePath("Entities")
+player = NodePath("Player")
+cursor = NodePath("Cursor")
+camera = NodePath("Camera2D")
+item_scene = ExtResource("2_o6xl0")
+water_scene = ExtResource("3_tipki")
+fire_scene = ExtResource("4_85g3d")
+params = ExtResource("5_jbj1t")
+exit_data = ExtResource("6_muem4")
+item_pool = Array[ExtResource("7_dp3eg")]([ExtResource("8_0ld40"), ExtResource("9_gqmmt"), ExtResource("10_yc10j"), ExtResource("11_jscy8"), ExtResource("12_pm3ni")])
+contract_pool = Array[ExtResource("13_jscy8")]([ExtResource("14_pm3ni"), ExtResource("15_y6deb"), ExtResource("16_og1vs"), ExtResource("17_2wyq8"), ExtResource("18_vxglm"), ExtResource("19_yq6so"), ExtResource("20_fv21b"), ExtResource("21_tel4y"), ExtResource("22_qkpxi"), ExtResource("23_5q0nq")])
+fire_ring_gap = 12
+ring_shape = 2.0
+creep_duration = 15.0
+breach_step = 0.1
+music = ExtResource("20_music")
+game_over_music = ExtResource("24_gameover")
+
+[node name="Floor" type="TileMapLayer" parent="Board" unique_id=1566616348]
+tile_set = ExtResource("1_o5qli")
+
+[node name="Obstacles" type="TileMapLayer" parent="Board" unique_id=1997675724]
+tile_set = ExtResource("1_o5qli")
+
+[node name="Walls" type="TileMapLayer" parent="Board" unique_id=559066284]
+tile_set = ExtResource("1_o5qli")
+
+[node name="Fx" type="Node2D" parent="Board" unique_id=1469151618]
+
+[node name="Entities" type="Node2D" parent="Board" unique_id=1541483567]
+
+[node name="Player" type="Node2D" parent="Board" unique_id=142224790]
+
+[node name="Glow" type="Sprite2D" parent="Board/Player" unique_id=1720340861]
+material = SubResource("ShaderMaterial_pglow")
+scale = Vector2(0.9, 0.9)
+texture = SubResource("GradientTexture2D_pglow")
+
+[node name="Sprite2D" type="Sprite2D" parent="Board/Player" unique_id=955296950]
+texture = ExtResource("3_tbgi4")
+
+[node name="Cursor" type="Sprite2D" parent="Board" unique_id=1120891575]
+texture = ExtResource("4_tefeu")
+
+[node name="Camera2D" type="Camera2D" parent="Board" unique_id=867711122]
+
+[node name="Hud" parent="." unique_id=1118544459 instance=ExtResource("8_tipki")]
+
+[node name="PauseMenu" parent="Hud" unique_id=354077065 instance=ExtResource("19_pause")]

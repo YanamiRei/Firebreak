@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ContractData" format=3 uid="uid://bsyukiuexa2k1"]
+
+[ext_resource type="Script" uid="uid://rwo6qn3o2qrk" path="res://scripts/contract_data.gd" id="1_hrjlt"]
+
+[resource]
+script = ExtResource("1_hrjlt")
+title = "Liability Waiver"
+flavour = "A quick signature and a lot of trust. Initial here, here and here."
+reward_amount = 5
+demand_amount = 24
+penalty_walls = 2
+fine_kind = 1
+fine_amount = 4
+fine_text = "Clause 7(b), page 41:"
+metadata/_custom_type_script = "uid://rwo6qn3o2qrk"

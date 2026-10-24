@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ContractData" format=3 uid="uid://thb023usjiix"]
+
+[ext_resource type="Script" uid="uid://rwo6qn3o2qrk" path="res://scripts/contract_data.gd" id="1_8h0u3"]
+
+[resource]
+script = ExtResource("1_8h0u3")
+title = "Fire Insurance"
+flavour = "Do it cheap, and we’ll cover your exit."
+reward_kind = 1
+reward_amount = 2
+demand_kind = 2
+demand_amount = 6
+metadata/_custom_type_script = "uid://rwo6qn3o2qrk"

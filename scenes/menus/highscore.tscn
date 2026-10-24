@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://c2thg2rw0unud"]
+
+[ext_resource type="Script" uid="uid://bowk8ogy8gqam" path="res://scenes/menus/highscores.gd" id="1_whqs5"]
+[ext_resource type="Theme" uid="uid://do4n5hhg5psa5" path="res://systems/ui/panel_container_theme.tres" id="2_ox5b4"]
+[ext_resource type="Script" uid="uid://b1wy1j0imbhdh" path="res://systems/ui/ui_button.gd" id="3_0d3jh"]
+[ext_resource type="PackedScene" uid="uid://d3we17cyjwa2c" path="res://scenes/menus/menu_background.tscn" id="9_bg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7v56q"]
+
+[node name="Highscore" type="Control" unique_id=1320380092 node_paths=PackedStringArray("table", "stats_label", "back_button", "clear_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_whqs5")
+table = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Table")
+stats_label = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/StatsLabel")
+back_button = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/BackButton")
+clear_button = NodePath("CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ClearButton")
+
+[node name="Background" parent="." unique_id=833986071 instance=ExtResource("9_bg")]
+layout_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1365293210]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=14777106]
+custom_minimum_size = Vector2(900, 520)
+layout_mode = 2
+theme = ExtResource("2_ox5b4")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=124560345]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=701503188]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1945865579]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_colors/font_outline_color = Color(0.9647059, 0.90588236, 0.7411765, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 34
+text = "Hall of Fame"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1485793717]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Table" type="RichTextLabel" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=81875352]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+
+[node name="StatsLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=588368630]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1779563624]
+layout_mode = 2
+
+[node name="ClearButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=732019134]
+layout_mode = 2
+size_flags_vertical = 8
+offset_transform_enabled = true
+theme_type_variation = &"DangerButton"
+text = "Clear Records"
+script = ExtResource("3_0d3jh")
+metadata/_custom_type_script = "uid://b1wy1j0imbhdh"
+
+[node name="VSeparator" type="VSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=677971994]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_7v56q")
+
+[node name="BackButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1720903814]
+layout_mode = 2
+size_flags_vertical = 8
+offset_transform_enabled = true
+text = "Back to Main Menu"
+script = ExtResource("3_0d3jh")
+metadata/_custom_type_script = "uid://b1wy1j0imbhdh"

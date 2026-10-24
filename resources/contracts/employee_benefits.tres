@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ContractData" format=3 uid="uid://cecy2o3janbvm"]
+
+[ext_resource type="Script" uid="uid://rwo6qn3o2qrk" path="res://scripts/contract_data.gd" id="1_vqo74"]
+
+[resource]
+script = ExtResource("1_vqo74")
+title = "Employee Benefits"
+flavour = "Management is feeling generous this quarter. Enjoy it while it lasts."
+demand_kind = 1
+demand_amount = 3
+floors_to_fulfil = 3
+fine_kind = 5
+fine_amount = 3
+fine_text = "Addendum, “Perks & Rewards”:"
+metadata/_custom_type_script = "uid://rwo6qn3o2qrk"

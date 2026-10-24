@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ContractData" format=3 uid="uid://dauqwre1ividt"]
+
+[ext_resource type="Script" uid="uid://rwo6qn3o2qrk" path="res://scripts/contract_data.gd" id="1_k2xbf"]
+
+[resource]
+script = ExtResource("1_k2xbf")
+title = "Overtime"
+flavour = "Management needs a bigger footprint. Stay late."
+reward_amount = 4
+demand_amount = 24
+penalty_walls = 4
+metadata/_custom_type_script = "uid://rwo6qn3o2qrk"

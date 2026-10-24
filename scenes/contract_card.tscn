@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://6raukcamlnqi"]
+
+[ext_resource type="Script" uid="uid://bqgk3liwigkry" path="res://scripts/contract_card.gd" id="1_0jquc"]
+[ext_resource type="Theme" uid="uid://do4n5hhg5psa5" path="res://systems/ui/panel_container_theme.tres" id="1_rwuif"]
+
+[node name="ContractCard" type="Button" unique_id=1290483947 node_paths=PackedStringArray("title_label", "flavour_label", "reward_label", "demand_label", "deadline_label", "penalty_label", "fine_label", "fine_row")]
+custom_minimum_size = Vector2(300, 400)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_rwuif")
+script = ExtResource("1_0jquc")
+title_label = NodePath("Margin/Box/TitleLabel")
+flavour_label = NodePath("Margin/Box/FlavourLabel")
+reward_label = NodePath("Margin/Box/Row1/RewardValue")
+demand_label = NodePath("Margin/Box/Row2/DemandLabel")
+deadline_label = NodePath("Margin/Box/Row3/DeadlineLabel")
+penalty_label = NodePath("Margin/Box/Row4/PenaltyLabel")
+fine_label = NodePath("Margin/Box/FineRow/FineLabel")
+fine_row = NodePath("Margin/Box/FineRow")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=652469436]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="Box" type="VBoxContainer" parent="Margin" unique_id=1525966541]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="Margin/Box" unique_id=214021571]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+
+[node name="FlavourLabel" type="Label" parent="Margin/Box" unique_id=2024485901]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="Margin/Box" unique_id=1057708576]
+layout_mode = 2
+
+[node name="Row1" type="HBoxContainer" parent="Margin/Box" unique_id=328255255]
+layout_mode = 2
+
+[node name="Get" type="Label" parent="Margin/Box/Row1" unique_id=679655651]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"DimLabel"
+text = "You Get:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="RewardValue" type="Label" parent="Margin/Box/Row1" unique_id=455278226]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="Row2" type="HBoxContainer" parent="Margin/Box" unique_id=260575964]
+layout_mode = 2
+
+[node name="Owe" type="Label" parent="Margin/Box/Row2" unique_id=1638534838]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"DimLabel"
+theme_override_font_sizes/font_size = 16
+text = "You Owe:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DemandLabel" type="Label" parent="Margin/Box/Row2" unique_id=581756209]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+autowrap_mode = 3
+
+[node name="Row3" type="HBoxContainer" parent="Margin/Box" unique_id=911623181]
+layout_mode = 2
+
+[node name="Within" type="Label" parent="Margin/Box/Row3" unique_id=937100315]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"DimLabel"
+theme_override_font_sizes/font_size = 16
+text = "Do Within:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DeadlineLabel" type="Label" parent="Margin/Box/Row3" unique_id=813635065]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="Row4" type="HBoxContainer" parent="Margin/Box" unique_id=1054397536]
+layout_mode = 2
+
+[node name="Break" type="Label" parent="Margin/Box/Row4" unique_id=1135500891]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"DimLabel"
+theme_override_font_sizes/font_size = 16
+text = "If Broken:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PenaltyLabel" type="Label" parent="Margin/Box/Row4" unique_id=599811391]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="FineRow" type="HBoxContainer" parent="Margin/Box" unique_id=1642202283]
+layout_mode = 2
+
+[node name="FinePrint" type="Label" parent="Margin/Box/FineRow" unique_id=78558729]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"DimLabel"
+theme_override_font_sizes/font_size = 16
+text = "Fine Print:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="FineLabel" type="Label" parent="Margin/Box/FineRow" unique_id=1054948901]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+autowrap_mode = 3

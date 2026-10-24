@@ -1,0 +1,49 @@
+
+
+
+
+
+
+
+
+
+
+FIREBREAK
+===========================
+
+STARTER KIT
+Godot Game Jam Starter Kit by NyeDigitalGames / James Nye
+
+ENGINE
+Godot Engine v4.7
+https://godotengine.org
+
+PROGRAMMING
+Rei
+
+ART
+Rei
+
+SOUND
+Menu music: Somewhere in the Elevator by Peachtea (You're Perfect Studio)
+Gameplay music: Hurry by Umplix
+Game over music: Game Over by Kistol
+Burn effect: Catching fire by themightyglider
+Fire ambience: Fireplace Sound Loop by PagDev
+Siren: Sirens and Alarm Noise by aquinn
+All sounds are CC0 and come from OpenGameArt.org
+https://opengameart.org
+
+Thank you for playing and creating!
+Press ESC to Return
+
+
+
+
+
+
+
+
+
+
+ 

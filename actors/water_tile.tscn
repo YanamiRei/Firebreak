@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://gajh2xijpy0r"]
+
+[ext_resource type="Script" uid="uid://brgf0mwqtwh40" path="res://scripts/fill_tile.gd" id="1_2iem0"]
+[ext_resource type="Texture2D" uid="uid://coytkatxpx07m" path="res://art/water.png" id="2_k2fkk"]
+
+[node name="WaterTile" type="Node2D" unique_id=1322409371]
+script = ExtResource("1_2iem0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=234966056]
+texture = ExtResource("2_k2fkk")

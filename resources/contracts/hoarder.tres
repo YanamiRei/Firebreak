@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ContractData" format=3 uid="uid://blc46o2v2hcye"]
+
+[ext_resource type="Script" uid="uid://rwo6qn3o2qrk" path="res://scripts/contract_data.gd" id="1_1khmr"]
+
+[resource]
+script = ExtResource("1_1khmr")
+title = "Hoarder"
+flavour = "Everything not nailed down belongs to the company. Take it."
+reward_kind = 1
+reward_amount = 1
+demand_kind = 1
+demand_amount = 3
+floors_to_fulfil = 3
+metadata/_custom_type_script = "uid://rwo6qn3o2qrk"

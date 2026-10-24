@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://hlo87io445nt"]
+
+[ext_resource type="Texture2D" uid="uid://bot7fxdouoadu" path="res://art/icon_memo.png" id="1_w4bkj"]
+[ext_resource type="Script" uid="uid://iehv4f2nd0sx" path="res://scripts/item_data.gd" id="1_x4y4u"]
+
+[resource]
+script = ExtResource("1_x4y4u")
+display_name = "Pink Slip"
+description = "It looks like a gift, but it’s a termination notice. -3 walls."
+icon = ExtResource("1_w4bkj")
+kind = 4
+amount = 3
+spawn_weight = 1.5
+can_be_masked = false
+metadata/_custom_type_script = "uid://iehv4f2nd0sx"

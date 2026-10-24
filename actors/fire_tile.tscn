@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bluty4hoi5w11"]
+
+[ext_resource type="Script" uid="uid://brgf0mwqtwh40" path="res://scripts/fill_tile.gd" id="1_ltlo0"]
+[ext_resource type="Texture2D" uid="uid://bqvcjhp7wtqwg" path="res://art/fire_sheet.png" id="2_ltlo0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55dnd"]
+atlas = ExtResource("2_ltlo0")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnj37"]
+atlas = ExtResource("2_ltlo0")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_heup0"]
+atlas = ExtResource("2_ltlo0")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7v56q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55dnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnj37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_heup0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="FireTile" type="Node2D" unique_id=1222920290]
+script = ExtResource("1_ltlo0")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1373607537]
+sprite_frames = SubResource("SpriteFrames_7v56q")
+autoplay = "default"
+frame_progress = 0.09093384

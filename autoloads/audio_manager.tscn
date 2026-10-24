@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://crtu4nlklqaj"]
+
+[ext_resource type="Script" uid="uid://erlcdl8rneis" path="res://autoloads/audio_manager.gd" id="1_alnp1"]
+[ext_resource type="AudioStream" uid="uid://b7xdg2l0ks2u4" path="res://assets/audio/Confirm.wav" id="2_xdfsh"]
+[ext_resource type="AudioStream" uid="uid://d2ptxfbfhs35f" path="res://assets/audio/Hover.wav" id="3_nb6j2"]
+[ext_resource type="AudioStream" uid="uid://8knmski8en7a" path="res://assets/audio/Denied.wav" id="4_nb6j2"]
+[ext_resource type="AudioStream" path="res://assets/audio/burn_flame.ogg" id="5_burn"]
+[ext_resource type="AudioStream" path="res://assets/audio/ambient_fire_loop.ogg" id="6_fire"]
+[ext_resource type="AudioStream" path="res://assets/audio/ambient_siren_loop.ogg" id="7_siren"]
+
+[node name="AudioManager" type="Node" unique_id=905528454]
+script = ExtResource("1_alnp1")
+ui_click = ExtResource("2_xdfsh")
+ui_hover = ExtResource("3_nb6j2")
+ui_error = ExtResource("4_nb6j2")
+burn_sfx = ExtResource("5_burn")
+
+[node name="AmbientFire" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_fire")
+volume_db = -28.0
+bus = &"SFX"
+
+[node name="AmbientSiren" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_siren")
+volume_db = -80.0
+bus = &"SFX"

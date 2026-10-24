@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cemj41ak2gxsn"]
+
+[ext_resource type="Script" uid="uid://cvlpt5aj70jae" path="res://scripts/pickup_toast.gd" id="1_g6hcv"]
+
+[node name="PickupToast" type="PanelContainer" unique_id=1339236151 node_paths=PackedStringArray("icon_rect", "label")]
+script = ExtResource("1_g6hcv")
+icon_rect = NodePath("HBoxContainer/Icon")
+label = NodePath("HBoxContainer/Label")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1653856272]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer" unique_id=2084479015]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=1097663279]
+layout_mode = 2

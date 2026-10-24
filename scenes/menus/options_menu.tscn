@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://bgg2oelwoenbr"]
+
+[ext_resource type="Script" uid="uid://bb6oicye0geqq" path="res://scenes/menus/options_menu.gd" id="1_60mby"]
+[ext_resource type="Theme" uid="uid://do4n5hhg5psa5" path="res://systems/ui/panel_container_theme.tres" id="2_ohqpn"]
+[ext_resource type="Script" uid="uid://b1wy1j0imbhdh" path="res://systems/ui/ui_button.gd" id="3_ohqpn"]
+[ext_resource type="PackedScene" uid="uid://d3we17cyjwa2c" path="res://scenes/menus/menu_background.tscn" id="9_bg"]
+
+[node name="Options Menu" type="Control" unique_id=874950457]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_60mby")
+
+[node name="Background" parent="." unique_id=1866693363 instance=ExtResource("9_bg")]
+layout_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1122985132]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=599264531]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 2
+theme = ExtResource("2_ohqpn")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=105719074]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=1995901756]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HowToPlay" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=688245237]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_colors/font_outline_color = Color(0.9647059, 0.90588236, 0.7411765, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 34
+text = "Options"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=512004144]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Audio Header" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=327871401]
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+text = "Audio"
+
+[node name="Audio" type="GridContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1014669750]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+columns = 2
+
+[node name="MasterLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Audio" unique_id=649391382]
+layout_mode = 2
+text = "Master Volume"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MasterSlider" type="HSlider" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Audio" unique_id=700905270]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.02
+value = 0.8
+
+[node name="MusicLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Audio" unique_id=933537186]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Audio" unique_id=1872865378]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.02
+value = 0.8
+
+[node name="SFXLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Audio" unique_id=920130238]
+layout_mode = 2
+text = "Sound Effects Volume"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Audio" unique_id=492735816]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.02
+value = 0.8
+
+[node name="UILabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Audio" unique_id=1705795641]
+layout_mode = 2
+text = "UI Volume"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="UISlider" type="HSlider" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Audio" unique_id=1340837335]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.02
+value = 0.8
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2117577666]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Display Header" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=691418751]
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+text = "Display"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1614848379]
+layout_mode = 2
+
+[node name="FullscreenCheck" type="CheckButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1489962232]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Full Screen Enabled"
+
+[node name="VSyncCheck" type="CheckButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=283254489]
+layout_mode = 2
+size_flags_horizontal = 6
+button_pressed = true
+text = "V-Sync Enabled"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1758647725]
+layout_mode = 2
+
+[node name="MaxFPSLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=2026529745]
+layout_mode = 2
+text = "Max Fps:"
+
+[node name="FPSOptions" type="OptionButton" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" unique_id=151259755]
+layout_mode = 2
+size_flags_horizontal = 6
+selected = 0
+item_count = 1
+popup/item_0/text = "Unlimited"
+popup/item_0/id = 0
+
+[node name="HSeparator3" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=267326229]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1209934778]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="DefaultButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=830374908]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_type_variation = &"DangerButton"
+text = "Reset to Defaults"
+script = ExtResource("3_ohqpn")
+metadata/_custom_type_script = "uid://b1wy1j0imbhdh"
+
+[node name="BackButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1825919533]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Back to Main Menu"
+script = ExtResource("3_ohqpn")
+metadata/_custom_type_script = "uid://b1wy1j0imbhdh"

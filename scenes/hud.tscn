@@ -1,0 +1,625 @@
+[gd_scene format=3 uid="uid://ic5vln387bo2"]
+
+[ext_resource type="Script" uid="uid://dqyp3tgcdx6rv" path="res://scripts/hud.gd" id="1_ahhtf"]
+[ext_resource type="PackedScene" uid="uid://cemj41ak2gxsn" path="res://scenes/pickup_toast.tscn" id="2_oo0fn"]
+[ext_resource type="Script" uid="uid://b1wy1j0imbhdh" path="res://systems/ui/ui_button.gd" id="3_uibtn"]
+[ext_resource type="Theme" uid="uid://do4n5hhg5psa5" path="res://systems/ui/panel_container_theme.tres" id="4_theme"]
+[ext_resource type="PackedScene" uid="uid://6raukcamlnqi" path="res://scenes/contract_card.tscn" id="4_uo2fv"]
+[ext_resource type="Texture2D" uid="uid://cg03eag5yjb45" path="res://art/icon_planks.png" id="5_planks"]
+[ext_resource type="Texture2D" uid="uid://dnyid2khm6tna" path="res://art/icon_plaque.png" id="6_plaque"]
+[ext_resource type="Texture2D" uid="uid://dlxaobsayemij" path="res://art/icon_portable_stairs.png" id="7_pstairs"]
+[ext_resource type="Texture2D" uid="uid://bot7fxdouoadu" path="res://art/icon_memo.png" id="8_memo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7v56q"]
+bg_color = Color(0.105882354, 0.12156863, 0.16078432, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.17819685, 0.18051204, 0.5602725, 1)
+
+[node name="Hud" type="CanvasLayer" unique_id=1118544459 node_paths=PackedStringArray("floor_label", "score_label", "walls_label", "area_label", "stairs_label", "contracts_label", "best_label", "submit_button", "reset_button", "pause_button", "feed_box", "offer_panel", "offer_buttons", "decline_button", "confirm_panel", "confirm_label", "sign_button", "back_button", "broken_panel", "broken_label", "broken_continue_button", "fine_print_panel", "fine_print_title", "fine_print_label", "fine_print_continue_button", "game_over_panel", "game_over_label", "retry_button", "run_floors_label", "run_score_label", "run_items_label", "run_contracts_label", "game_over_banner")]
+script = ExtResource("1_ahhtf")
+floor_label = NodePath("Root/LeftPanel/Margin/Stats/FloorLabel")
+score_label = NodePath("Root/LeftPanel/Margin/Stats/ScoreRow/ScoreLabel")
+walls_label = NodePath("Root/LeftPanel/Margin/Stats/WallsRow/WallsLabel")
+area_label = NodePath("Root/LeftPanel/Margin/Stats/AreaLabel")
+stairs_label = NodePath("Root/LeftPanel/Margin/Stats/StairsRow/StairsLabel")
+contracts_label = NodePath("Root/RightPanel/Margin/Box/ContractsLabel")
+best_label = NodePath("Root/LeftPanel/Margin/Stats/BestRow/BestLabel")
+submit_button = NodePath("Root/ButtonRow/SubmitButton")
+reset_button = NodePath("Root/ButtonRow/ResetButton")
+pause_button = NodePath("Root/PauseButton")
+feed_box = NodePath("Root/FeedBox")
+toast_scene = ExtResource("2_oo0fn")
+offer_panel = NodePath("Root/OfferPanel")
+offer_buttons = [NodePath("Root/OfferPanel/Margin/OfferBox/Offers/Offer1"), NodePath("Root/OfferPanel/Margin/OfferBox/Offers/Offer2"), NodePath("Root/OfferPanel/Margin/OfferBox/Offers/Offer3")]
+decline_button = NodePath("Root/OfferPanel/Margin/OfferBox/DeclineButton")
+confirm_panel = NodePath("Root/ConfirmPanel")
+confirm_label = NodePath("Root/ConfirmPanel/Margin/Box/ConfirmLabel")
+sign_button = NodePath("Root/ConfirmPanel/Margin/Box/ButtonRow/SignButton")
+back_button = NodePath("Root/ConfirmPanel/Margin/Box/ButtonRow/BackButton")
+broken_panel = NodePath("Root/BrokenPanel")
+broken_label = NodePath("Root/BrokenPanel/Margin/Box/BrokenLabel")
+broken_continue_button = NodePath("Root/BrokenPanel/Margin/Box/ContinueButton")
+fine_print_panel = NodePath("Root/FinePrintPanel")
+fine_print_title = NodePath("Root/FinePrintPanel/Margin/Box/FinePrintTitle")
+fine_print_label = NodePath("Root/FinePrintPanel/Margin/Box/FinePrintLabel")
+fine_print_continue_button = NodePath("Root/FinePrintPanel/Margin/Box/ContinueButton")
+game_over_panel = NodePath("Root/GameOverPanel")
+game_over_label = NodePath("Root/GameOverPanel/Margin/GameOverBox/GameOverLabel")
+retry_button = NodePath("Root/GameOverPanel/Margin/GameOverBox/RetryButton")
+run_floors_label = NodePath("Root/GameOverPanel/Margin/GameOverBox/StatsGrid/FloorsValue")
+run_score_label = NodePath("Root/GameOverPanel/Margin/GameOverBox/StatsGrid/ScoreValue")
+run_items_label = NodePath("Root/GameOverPanel/Margin/GameOverBox/StatsGrid/ItemsValue")
+run_contracts_label = NodePath("Root/GameOverPanel/Margin/GameOverBox/StatsGrid/ContractsValue")
+game_over_banner = NodePath("Root/GameOverPanel/Margin/GameOverBox/BannerLabel")
+
+[node name="Root" type="Control" parent="." unique_id=1041046400]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("4_theme")
+
+[node name="ButtonRow" type="HBoxContainer" parent="Root" unique_id=920742920]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -48.0
+offset_right = 116.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+offset_transform_enabled = true
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="ResetButton" type="Button" parent="Root/ButtonRow" unique_id=1449122530]
+custom_minimum_size = Vector2(110, 40)
+layout_mode = 2
+text = "Reset
+"
+
+[node name="SubmitButton" type="Button" parent="Root/ButtonRow" unique_id=272517687]
+custom_minimum_size = Vector2(110, 40)
+layout_mode = 2
+theme_type_variation = &"AccentButton"
+text = "Submit"
+
+[node name="PauseButton" type="Button" parent="Root" unique_id=327010103]
+custom_minimum_size = Vector2(110, 40)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -48.0
+offset_right = -16.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Pause"
+
+[node name="FeedBox" type="VBoxContainer" parent="Root" unique_id=1440317991]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+alignment = 2
+
+[node name="LeftPanel" type="PanelContainer" parent="Root" unique_id=1992736762]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 266.0
+offset_bottom = 160.0
+theme = ExtResource("4_theme")
+
+[node name="Margin" type="MarginContainer" parent="Root/LeftPanel" unique_id=764639814]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Stats" type="VBoxContainer" parent="Root/LeftPanel/Margin" unique_id=1671402901]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="FloorLabel" type="Label" parent="Root/LeftPanel/Margin/Stats" unique_id=141036005]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "Floor 1"
+
+[node name="HSeparator" type="HSeparator" parent="Root/LeftPanel/Margin/Stats" unique_id=128464537]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ScoreRow" type="HBoxContainer" parent="Root/LeftPanel/Margin/Stats" unique_id=988628261]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ScoreIcon" type="TextureRect" parent="Root/LeftPanel/Margin/Stats/ScoreRow" unique_id=289536288]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("6_plaque")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ScoreCaption" type="Label" parent="Root/LeftPanel/Margin/Stats/ScoreRow" unique_id=1701997074]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"DimLabel"
+text = "Score"
+
+[node name="ScoreLabel" type="Label" parent="Root/LeftPanel/Margin/Stats/ScoreRow" unique_id=607478354]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="BestRow" type="HBoxContainer" parent="Root/LeftPanel/Margin/Stats" unique_id=555891131]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BestIcon" type="TextureRect" parent="Root/LeftPanel/Margin/Stats/BestRow" unique_id=369563145]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("8_memo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BestCaption" type="Label" parent="Root/LeftPanel/Margin/Stats/BestRow" unique_id=1382549947]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"DimLabel"
+text = "Best"
+
+[node name="BestLabel" type="Label" parent="Root/LeftPanel/Margin/Stats/BestRow" unique_id=797314056]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="WallsRow" type="HBoxContainer" parent="Root/LeftPanel/Margin/Stats" unique_id=116949631]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="WallsIcon" type="TextureRect" parent="Root/LeftPanel/Margin/Stats/WallsRow" unique_id=1417125654]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("5_planks")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WallsCaption" type="Label" parent="Root/LeftPanel/Margin/Stats/WallsRow" unique_id=616482119]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"DimLabel"
+text = "Walls used"
+
+[node name="WallsLabel" type="Label" parent="Root/LeftPanel/Margin/Stats/WallsRow" unique_id=814244532]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "0/12"
+horizontal_alignment = 2
+
+[node name="AreaLabel" type="Label" parent="Root/LeftPanel/Margin/Stats" unique_id=1939689780]
+visible = false
+layout_mode = 2
+text = "Area: 0"
+
+[node name="StairsRow" type="HBoxContainer" parent="Root/LeftPanel/Margin/Stats" unique_id=1614807384]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="StairsIcon" type="TextureRect" parent="Root/LeftPanel/Margin/Stats/StairsRow" unique_id=1322703625]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("7_pstairs")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StairsCaption" type="Label" parent="Root/LeftPanel/Margin/Stats/StairsRow" unique_id=1776937037]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"DimLabel"
+text = "Portable stairs"
+
+[node name="StairsLabel" type="Label" parent="Root/LeftPanel/Margin/Stats/StairsRow" unique_id=1204480332]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="RightPanel" type="PanelContainer" parent="Root" unique_id=430544733]
+custom_minimum_size = Vector2(290, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -306.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 100.0
+grow_horizontal = 0
+theme = ExtResource("4_theme")
+
+[node name="Margin" type="MarginContainer" parent="Root/RightPanel" unique_id=1124566206]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Box" type="VBoxContainer" parent="Root/RightPanel/Margin" unique_id=1330302782]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ContractsTitle" type="Label" parent="Root/RightPanel/Margin/Box" unique_id=348656964]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+text = "Contracts"
+
+[node name="HSeparator" type="HSeparator" parent="Root/RightPanel/Margin/Box" unique_id=906259916]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ContractsLabel" type="RichTextLabel" parent="Root/RightPanel/Margin/Box" unique_id=384278443]
+layout_mode = 2
+bbcode_enabled = true
+text = "[color=#8e9db0]None active[/color]"
+fit_content = true
+scroll_active = false
+
+[node name="OfferPanel" type="PanelContainer" parent="Root" unique_id=1840850703]
+custom_minimum_size = Vector2(760, 380)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -397.0
+offset_top = -192.5
+offset_right = 397.0
+offset_bottom = 192.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_theme")
+
+[node name="Margin" type="MarginContainer" parent="Root/OfferPanel" unique_id=1758975329]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="OfferBox" type="VBoxContainer" parent="Root/OfferPanel/Margin" unique_id=303144558]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="OfferTitle" type="Label" parent="Root/OfferPanel/Margin/OfferBox" unique_id=208258258]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_font_sizes/font_size = 24
+text = "Sign a Contract?"
+horizontal_alignment = 1
+
+[node name="Offers" type="HBoxContainer" parent="Root/OfferPanel/Margin/OfferBox" unique_id=412305161]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="Offer1" parent="Root/OfferPanel/Margin/OfferBox/Offers" unique_id=1290483947 instance=ExtResource("4_uo2fv")]
+layout_mode = 2
+
+[node name="Offer2" parent="Root/OfferPanel/Margin/OfferBox/Offers" unique_id=1716220343 instance=ExtResource("4_uo2fv")]
+layout_mode = 2
+
+[node name="Offer3" parent="Root/OfferPanel/Margin/OfferBox/Offers" unique_id=1997168714 instance=ExtResource("4_uo2fv")]
+layout_mode = 2
+
+[node name="DeclineButton" type="Button" parent="Root/OfferPanel/Margin/OfferBox" unique_id=1021082794]
+layout_mode = 2
+text = "No thanks"
+
+[node name="ConfirmPanel" type="PanelContainer" parent="Root" unique_id=2121903197]
+visible = false
+custom_minimum_size = Vector2(520, 260)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -284.0
+offset_top = -130.0
+offset_right = 284.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_theme")
+
+[node name="Margin" type="MarginContainer" parent="Root/ConfirmPanel" unique_id=1573303938]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Box" type="VBoxContainer" parent="Root/ConfirmPanel/Margin" unique_id=2119097982]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="ConfirmLabel" type="Label" parent="Root/ConfirmPanel/Margin/Box" unique_id=1715559581]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Confirm"
+autowrap_mode = 3
+
+[node name="ButtonRow" type="HBoxContainer" parent="Root/ConfirmPanel/Margin/Box" unique_id=1739958023]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Root/ConfirmPanel/Margin/Box/ButtonRow" unique_id=732408895]
+custom_minimum_size = Vector2(140, 44)
+layout_mode = 2
+text = "Go back"
+
+[node name="SignButton" type="Button" parent="Root/ConfirmPanel/Margin/Box/ButtonRow" unique_id=1150290459]
+custom_minimum_size = Vector2(140, 44)
+layout_mode = 2
+theme_type_variation = &"AccentButton"
+text = "Sign it"
+
+[node name="BrokenPanel" type="PanelContainer" parent="Root" unique_id=605380198]
+visible = false
+custom_minimum_size = Vector2(520, 280)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -140.0
+offset_right = 260.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="Root/BrokenPanel" unique_id=2066612750]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Box" type="VBoxContainer" parent="Root/BrokenPanel/Margin" unique_id=949102784]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="BrokenTitle" type="Label" parent="Root/BrokenPanel/Margin/Box" unique_id=1993728095]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.41960785, 0.41960785, 1)
+theme_override_colors/font_outline_color = Color(1, 0.41960785, 0.41960785, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 34
+text = "CONTRACT BROKEN"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Root/BrokenPanel/Margin/Box" unique_id=1750688234]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_7v56q")
+
+[node name="BrokenLabel" type="Label" parent="Root/BrokenPanel/Margin/Box" unique_id=1787820730]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Placeholder"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ContinueButton" type="Button" parent="Root/BrokenPanel/Margin/Box" unique_id=1754309846]
+custom_minimum_size = Vector2(160, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continue"
+
+[node name="FinePrintPanel" type="PanelContainer" parent="Root" unique_id=96938622]
+visible = false
+custom_minimum_size = Vector2(520, 280)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -140.0
+offset_right = 260.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="Root/FinePrintPanel" unique_id=802891700]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Box" type="VBoxContainer" parent="Root/FinePrintPanel/Margin" unique_id=1274984161]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="FinePrintTitle" type="Label" parent="Root/FinePrintPanel/Margin/Box" unique_id=941327573]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.41960785, 0.41960785, 1)
+theme_override_colors/font_outline_color = Color(1, 0.41960785, 0.41960785, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 34
+text = "Fine Print"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Root/FinePrintPanel/Margin/Box" unique_id=401737150]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_7v56q")
+
+[node name="FinePrintLabel" type="Label" parent="Root/FinePrintPanel/Margin/Box" unique_id=860733599]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Placeholder"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ContinueButton" type="Button" parent="Root/FinePrintPanel/Margin/Box" unique_id=1234670888]
+custom_minimum_size = Vector2(160, 44)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continue"
+
+[node name="GameOverPanel" type="PanelContainer" parent="Root" unique_id=72032155]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -210.0
+offset_right = 240.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_theme")
+
+[node name="Margin" type="MarginContainer" parent="Root/GameOverPanel" unique_id=964988644]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 8
+
+[node name="GameOverBox" type="VBoxContainer" parent="Root/GameOverPanel/Margin" unique_id=71850931]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="Root/GameOverPanel/Margin/GameOverBox" unique_id=1318878269]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_colors/font_color = Color(1, 0.41960785, 0.41960785, 1)
+theme_override_colors/font_outline_color = Color(1, 0.41960785, 0.41960785, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 34
+text = "RUN OVER"
+horizontal_alignment = 1
+
+[node name="GameOverLabel" type="Label" parent="Root/GameOverPanel/Margin/GameOverBox" unique_id=884156069]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="Root/GameOverPanel/Margin/GameOverBox" unique_id=1415967833]
+layout_mode = 2
+
+[node name="StatsGrid" type="GridContainer" parent="Root/GameOverPanel/Margin/GameOverBox" unique_id=14128644]
+layout_mode = 2
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="FloorsCaption" type="Label" parent="Root/GameOverPanel/Margin/GameOverBox/StatsGrid" unique_id=1378338712]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"DimLabel"
+text = "Floors cleared"
+
+[node name="FloorsValue" type="Label" parent="Root/GameOverPanel/Margin/GameOverBox/StatsGrid" unique_id=1568092770]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="ScoreCaption" type="Label" parent="Root/GameOverPanel/Margin/GameOverBox/StatsGrid" unique_id=1113642092]
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+text = "Score"
+
+[node name="ScoreValue" type="Label" parent="Root/GameOverPanel/Margin/GameOverBox/StatsGrid" unique_id=674820896]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="ItemsCaption" type="Label" parent="Root/GameOverPanel/Margin/GameOverBox/StatsGrid" unique_id=383523649]
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+text = "Items collected"
+
+[node name="ItemsValue" type="Label" parent="Root/GameOverPanel/Margin/GameOverBox/StatsGrid" unique_id=639359870]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="ContractsCaption" type="Label" parent="Root/GameOverPanel/Margin/GameOverBox/StatsGrid" unique_id=1315329394]
+layout_mode = 2
+theme_type_variation = &"DimLabel"
+text = "Contracts"
+
+[node name="ContractsValue" type="Label" parent="Root/GameOverPanel/Margin/GameOverBox/StatsGrid" unique_id=1909486086]
+layout_mode = 2
+text = "0 kept / 0 broken"
+horizontal_alignment = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Root/GameOverPanel/Margin/GameOverBox" unique_id=1235110089]
+layout_mode = 2
+
+[node name="BannerLabel" type="Label" parent="Root/GameOverPanel/Margin/GameOverBox" unique_id=1883785467]
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_colors/font_color = Color(1, 0.85, 0.35, 1)
+theme_override_font_sizes/font_size = 24
+text = "NEW HIGH SCORE!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="RetryButton" type="Button" parent="Root/GameOverPanel/Margin/GameOverBox" unique_id=1057536687]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_type_variation = &"AccentButton"
+text = "Try Again"
+
+[node name="MenuButton" type="Button" parent="Root/GameOverPanel/Margin/GameOverBox" unique_id=1057536688]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "Main Menu"
+script = ExtResource("3_uibtn")
+
+[connection signal="pressed" from="Root/GameOverPanel/Margin/GameOverBox/MenuButton" to="." method="_on_menu_button_pressed"]

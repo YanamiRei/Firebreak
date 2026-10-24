@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c0b6ht3hi0kng"]
+
+[ext_resource type="Script" uid="uid://oc7moitucwvc" path="res://scripts/item.gd" id="1_4ljsg"]
+[ext_resource type="Texture2D" uid="uid://pbkpgpcd8u11" path="res://art/tell.png" id="2_oi6vk"]
+
+[node name="Item" type="Node2D" unique_id=363391404 node_paths=PackedStringArray("icon_sprite", "tell_node")]
+script = ExtResource("1_4ljsg")
+icon_sprite = NodePath("Icon")
+tell_node = NodePath("Tell")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=330886047]
+
+[node name="Tell" type="Sprite2D" parent="." unique_id=1482908866]
+texture = ExtResource("2_oi6vk")

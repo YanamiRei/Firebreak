@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://beghpan84qqsp"]
+
+[ext_resource type="Script" uid="uid://0vr0wgfr7tra" path="res://scenes/menus/how_to_play.gd" id="1_p3ub0"]
+[ext_resource type="Theme" uid="uid://do4n5hhg5psa5" path="res://systems/ui/panel_container_theme.tres" id="2_uij2r"]
+[ext_resource type="Script" uid="uid://b1wy1j0imbhdh" path="res://systems/ui/ui_button.gd" id="3_uij2r"]
+[ext_resource type="PackedScene" uid="uid://d3we17cyjwa2c" path="res://scenes/menus/menu_background.tscn" id="9_bg"]
+
+[node name="How To Play" type="Control" unique_id=874950457]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p3ub0")
+
+[node name="Background" parent="." unique_id=1866693363 instance=ExtResource("9_bg")]
+layout_mode = 1
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=407973932]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 1256.0
+offset_bottom = 696.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="PanelContainer" type="PanelContainer" parent="Margin" unique_id=599264531]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 2
+theme = ExtResource("2_uij2r")
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/PanelContainer" unique_id=105719074]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/PanelContainer/MarginContainer" unique_id=1995901756]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HowToPlay" type="Label" parent="Margin/PanelContainer/MarginContainer/VBoxContainer" unique_id=688245237]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_colors/font_outline_color = Color(0.9647059, 0.90588236, 0.7411765, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 34
+text = "Employee Handbook"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Margin/PanelContainer/MarginContainer/VBoxContainer" unique_id=512004144]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Margin/PanelContainer/MarginContainer/VBoxContainer" unique_id=1033050867]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[font_size=20][color=#ffd98a][b]THE STORY[/b][/color][/font_size]
+It's 4:58 on a Friday, and you're stuck on the top floor of the office. [img=22]res://art/player.png[/img]
+The sprinklers are \"under review\", the fire alarm is \"a rumour\", and the whole building is burning from the outside in.
+The only way out is down. Wall yourself into a pocket of the office, let the water fill it, grab what you can, and reach the stairs before the fire does. Then do it again on the next floor, and the next.
+
+[font_size=20][color=#ffd98a][b]EACH FLOOR[/b][/color][/font_size]
+[ol]
+Look at the floor. The pre-placed walls [img=22 region=144,0,24,24]res://art/tileset.png[/img] can't be moved. The staircase [img=22]res://art/stairs.png[/img] is somewhere in the maze.
+Place your own wooden walls [img=22 region=72,0,24,24]res://art/tileset.png[/img] to seal off an area that includes you and a staircase.
+Press [b]Submit[/b]. Water [img=22]res://art/water.png[/img] floods the sealed area and collects every item inside.
+Fire [img=22]res://art/fire.png[/img] then sweeps in from outside and burns everything the water doesn't cover, including the wooden walls and any items you left out there.
+If you're sealed in with stairs, you go down. If you're sealed in with no stairs, a Portable Stairs is used if you have one. If not, or if you weren't sealed in at all, it's game over.
+[/ol]
+You only get a limited number of walls per floor. A few unused walls carry over to the next floor. The bigger the sealed area, the more score you earn, and the fire is already creeping toward the building, so don't dawdle. If it reaches the building before you press Submit, whatever you've placed is submitted for you.
+
+[font_size=20][color=#ffd98a][b]ITEMS[/b][/color][/font_size]
+[img=22]res://art/stairs.png[/img] [b]Stairs:[/b] The way down. Get inside your sealed area to use it.
+[img=22]res://art/icon_planks.png[/img] [b]Wood Planks:[/b] Lumber from the supply closet. +3 walls next floor.
+[img=22]res://art/icon_foam.png[/img] [b]Foam Wall Kit:[/b] Quick-set foam from the facilities cart. +2 walls next floor.
+[img=22]res://art/icon_portable_stairs.png[/img] [b]Portable Stairs:[/b] A fold-out emergency staircase. Used automatically if you're sealed in with no stairs.
+[img=22]res://art/icon_plaque.png[/img] [b]Employee Plaque:[/b] Employee of the Month. Management will pay for this. +15 score.
+[img=22]res://art/icon_memo.png[/img] [b]Pink Slip:[/b] It looks like a gift, but it's a termination notice. -3 walls.
+
+[font_size=20][color=#ffd98a][b]MASKS[/b][/color][/font_size]
+Not everything is what it looks like. Items can wear the face of another item, and Pink Slips [i]always[/i] do. Nothing is revealed until the water reaches it. Then the mask comes off: [color=#ffd98a][b]UNMASKED![/b][/color] for a good surprise, [color=#ff6b6b][b]CURSED![/b][/color] for a bad one.
+A small badge [img=22]res://art/tell.png[/img] on an item is a tell: that one is wearing a mask. Not every disguise has one, so trust nothing.
+
+[font_size=20][color=#ffd98a][b]CONTRACTS[/b][/color][/font_size]
+Every couple of floors, the company offers you a contract. Each one gives you something now, asks something of you within a few floors, and takes walls (sometimes score) if you break it. You can decline, but the rewards are tempting.
+[color=#ffd98a][b]Austerity[/b][/color]: Budget cuts. Make do with less.
+[color=#ffd98a][b]Corner Office[/b][/color]: You're going places. Take up some space.
+[color=#ffd98a][b]Hoarder[/b][/color]: Everything not nailed down belongs to the company. Take it.
+[color=#ffd98a][b]Fire Insurance[/b][/color]: Do it cheap, and we'll cover your exit.
+[color=#ffd98a][b]Overtime[/b][/color]: Management needs a bigger footprint. Stay late.
+[color=#ffd98a][b]Signing Bonus[/b][/color]: A generous welcome package. Don't read too much into it.
+[color=#ffd98a][b]Standard Terms[/b][/color]: Our usual terms. Nothing unusual, nothing to see here.
+[color=#ffd98a][b]Rush Order[/b][/color]: The client needs it yesterday. We told them you'd manage.
+[color=#ffd98a][b]Liability Waiver[/b][/color]: A quick signature and a lot of trust. Initial here, here and here.
+[color=#ffd98a][b]Employee Benefits[/b][/color]: Management is feeling generous this quarter. Enjoy it while it lasts.
+Some contracts have [color=#ffcc55][b]fine print[/b][/color], shown as a row of # marks. You won't know what it says until you sign, and it could help you or hurt you. You can't take a contract back once you've signed it.
+
+[font_size=20][color=#ffd98a][b]CONTROLS[/b][/color][/font_size]
+[b]Left click:[/b] place a wall, or remove one you placed.
+[b]Right click:[/b] remove a wall.
+[b]Submit / Reset:[/b] the on-screen buttons.
+[b]R:[/b] restart.   [b]ESC or P:[/b] pause.
+
+[font_size=20][color=#ffd98a][b]TIPS[/b][/color][/font_size]
+Smaller pockets cost fewer walls. Bigger pockets earn more score and catch more items.
+Doorways are cheap to block, so look for the narrow gaps first.
+Keep a Portable Stairs [img=22]res://art/icon_portable_stairs.png[/img] in reserve. It is the one thing that rescues a bad seal."
+
+[node name="BackButton" type="Button" parent="Margin/PanelContainer/MarginContainer/VBoxContainer" unique_id=1092874677]
+layout_mode = 2
+size_flags_vertical = 8
+offset_transform_enabled = true
+text = "Back to Main Menu"
+script = ExtResource("3_uij2r")
+metadata/_custom_type_script = "uid://b1wy1j0imbhdh"
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1122985132]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

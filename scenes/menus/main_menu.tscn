@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://ru4vef1a3rqc"]
+
+[ext_resource type="Script" uid="uid://ccts2ig5lhv0f" path="res://scenes/menus/main_menu.gd" id="1_ovrgc"]
+[ext_resource type="Theme" uid="uid://do4n5hhg5psa5" path="res://systems/ui/panel_container_theme.tres" id="1_xqga4"]
+[ext_resource type="Script" uid="uid://b1wy1j0imbhdh" path="res://systems/ui/ui_button.gd" id="3_2o76q"]
+[ext_resource type="AudioStream" uid="uid://3xuh8hmby1bs" path="res://assets/audio/menu_elevator.ogg" id="4_menu"]
+[ext_resource type="PackedScene" uid="uid://d3we17cyjwa2c" path="res://scenes/menus/menu_background.tscn" id="9_bg"]
+
+[node name="MainMenu" type="Control" unique_id=874950457]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ovrgc")
+menu_music = ExtResource("4_menu")
+
+[node name="Background" parent="." unique_id=1866693363 instance=ExtResource("9_bg")]
+layout_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1122985132]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=599264531]
+layout_mode = 2
+theme = ExtResource("1_xqga4")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=105719074]
+layout_mode = 2
+
+[node name="Menu" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=1995901756]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="GameTitle" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/Menu" unique_id=688245237]
+layout_mode = 2
+theme_type_variation = &"TitleLabel"
+theme_override_colors/font_outline_color = Color(0.9647059, 0.90588236, 0.7411765, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 34
+text = "FIREBREAK"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/Menu" unique_id=1600971276]
+layout_mode = 2
+theme_type_variation = &"TooltipLabel"
+text = "Seal yourself in before the fire arrives"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/MarginContainer/Menu" unique_id=512004144]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PlayButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Menu" unique_id=425604963]
+layout_mode = 2
+offset_transform_enabled = true
+theme_type_variation = &"AccentButton"
+text = "New Run"
+script = ExtResource("3_2o76q")
+metadata/_custom_type_script = "uid://b1wy1j0imbhdh"
+
+[node name="HowToPlayButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Menu" unique_id=936639231]
+layout_mode = 2
+offset_transform_enabled = true
+text = "Employee Handbook"
+script = ExtResource("3_2o76q")
+metadata/_custom_type_script = "uid://b1wy1j0imbhdh"
+
+[node name="HighscoresButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Menu" unique_id=189909572]
+layout_mode = 2
+offset_transform_enabled = true
+text = "Hall of Fame"
+script = ExtResource("3_2o76q")
+metadata/_custom_type_script = "uid://b1wy1j0imbhdh"
+
+[node name="OptionsButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Menu" unique_id=1497331359]
+layout_mode = 2
+offset_transform_enabled = true
+text = "Options"
+script = ExtResource("3_2o76q")
+metadata/_custom_type_script = "uid://b1wy1j0imbhdh"
+
+[node name="CreditsButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Menu" unique_id=770166209]
+layout_mode = 2
+offset_transform_enabled = true
+text = "Credits"
+script = ExtResource("3_2o76q")
+metadata/_custom_type_script = "uid://b1wy1j0imbhdh"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/Menu" unique_id=452678443]
+layout_mode = 2
+offset_transform_enabled = true
+theme_type_variation = &"DangerButton"
+text = "Clock Out"
+script = ExtResource("3_2o76q")
+metadata/_custom_type_script = "uid://b1wy1j0imbhdh"

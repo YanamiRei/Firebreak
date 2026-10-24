@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ContractData" format=3 uid="uid://cwmtelyuuvrk7"]
+
+[ext_resource type="Script" uid="uid://rwo6qn3o2qrk" path="res://scripts/contract_data.gd" id="1_v2pab"]
+
+[resource]
+script = ExtResource("1_v2pab")
+title = "Corner Office"
+flavour = "You’re going places. Take up some space."
+reward_amount = 6
+demand_amount = 40
+floors_to_fulfil = 3
+penalty_walls = 6
+metadata/_custom_type_script = "uid://rwo6qn3o2qrk"

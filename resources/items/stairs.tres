@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d07rdw6qr76bo"]
+
+[ext_resource type="Texture2D" uid="uid://jb8hhdc1kpvb" path="res://art/stairs.png" id="1_fkxs2"]
+[ext_resource type="Script" uid="uid://iehv4f2nd0sx" path="res://scripts/item_data.gd" id="1_jltq5"]
+
+[resource]
+script = ExtResource("1_jltq5")
+display_name = "Stairs"
+description = "The way down. Get inside your sealed area to use it."
+icon = ExtResource("1_fkxs2")
+kind = 0
+can_be_masked = false
+metadata/_custom_type_script = "uid://iehv4f2nd0sx"

@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://kl7gr0d8tw74"]
+
+[ext_resource type="Script" uid="uid://dh1qmsc21ao6m" path="res://scenes/menus/click_to_start.gd" id="1_ul3dl"]
+
+[node name="ClickToStart" type="Control" unique_id=1323304240]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ul3dl")
+
+[node name="Background" type="ColorRect" parent="." unique_id=691535421]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1645090271]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=276965414]
+layout_mode = 2
+
+[node name="GameTitle" type="Label" parent="CenterContainer/VBoxContainer" unique_id=292003356]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "FIREBREAK"
+horizontal_alignment = 1
+
+[node name="Prompt" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1456006534]
+layout_mode = 2
+text = "Click anywhere or press any key to start"
+horizontal_alignment = 1

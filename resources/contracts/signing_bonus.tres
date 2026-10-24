@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ContractData" format=3 uid="uid://bomd1pn3cpmij"]
+
+[ext_resource type="Script" uid="uid://rwo6qn3o2qrk" path="res://scripts/contract_data.gd" id="1_cphnv"]
+
+[resource]
+script = ExtResource("1_cphnv")
+title = "Signing Bonus"
+flavour = "A generous welcome package. Don’t read too much into it."
+reward_amount = 7
+demand_kind = 1
+demand_amount = 2
+floors_to_fulfil = 3
+penalty_walls = 2
+fine_kind = 4
+fine_amount = 3
+fine_text = "Section 12, “Onboarding & Processing”:"
+metadata/_custom_type_script = "uid://rwo6qn3o2qrk"

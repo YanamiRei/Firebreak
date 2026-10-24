@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://eqj0smxhweqj"]
+
+[ext_resource type="Script" uid="uid://iehv4f2nd0sx" path="res://scripts/item_data.gd" id="1_1nlp3"]
+[ext_resource type="Texture2D" uid="uid://dnyid2khm6tna" path="res://art/icon_plaque.png" id="1_tvx3l"]
+
+[resource]
+script = ExtResource("1_1nlp3")
+display_name = "Employee Plaque"
+description = "Employee of the Month. Management will pay for this. +15 score."
+icon = ExtResource("1_tvx3l")
+kind = 3
+amount = 15
+spawn_weight = 2.0
+metadata/_custom_type_script = "uid://iehv4f2nd0sx"

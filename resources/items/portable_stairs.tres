@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c5ugvgd6ogg1"]
+
+[ext_resource type="Script" uid="uid://iehv4f2nd0sx" path="res://scripts/item_data.gd" id="1_rx3hb"]
+[ext_resource type="Texture2D" uid="uid://dlxaobsayemij" path="res://art/icon_portable_stairs.png" id="1_xgsd5"]
+
+[resource]
+script = ExtResource("1_rx3hb")
+display_name = "Portable Stairs"
+description = "A fold-out emergency staircase. Used automatically if you’re sealed in with no stairs."
+icon = ExtResource("1_xgsd5")
+kind = 2
+spawn_weight = 1.5
+metadata/_custom_type_script = "uid://iehv4f2nd0sx"

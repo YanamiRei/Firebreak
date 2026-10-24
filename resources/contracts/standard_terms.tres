@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ContractData" format=3 uid="uid://bhn2olbadphpo"]
+
+[ext_resource type="Script" uid="uid://rwo6qn3o2qrk" path="res://scripts/contract_data.gd" id="1_vhltk"]
+
+[resource]
+script = ExtResource("1_vhltk")
+title = "Standard Terms"
+flavour = "Our usual terms. Nothing unusual, nothing to see here."
+reward_kind = 2
+reward_amount = 30
+demand_kind = 2
+demand_amount = 9
+floors_to_fulfil = 3
+penalty_walls = 2
+fine_kind = 2
+fine_text = "Appendix C, “Operational Efficiencies”:"
+metadata/_custom_type_script = "uid://rwo6qn3o2qrk"

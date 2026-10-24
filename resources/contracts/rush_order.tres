@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ContractData" format=3 uid="uid://d2gxi141ncnua"]
+
+[ext_resource type="Script" uid="uid://rwo6qn3o2qrk" path="res://scripts/contract_data.gd" id="1_frijk"]
+
+[resource]
+script = ExtResource("1_frijk")
+title = "Rush Order"
+flavour = "The client needs it yesterday. We told them you’d manage."
+reward_kind = 1
+reward_amount = 2
+demand_amount = 30
+floors_to_fulfil = 3
+penalty_walls = 4
+fine_kind = 3
+fine_amount = 1
+fine_text = "Footnote 4, “Timelines”:"
+metadata/_custom_type_script = "uid://rwo6qn3o2qrk"

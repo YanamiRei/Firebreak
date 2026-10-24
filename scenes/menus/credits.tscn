@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://gdoyawhf04kc"]
+
+[ext_resource type="Script" uid="uid://c6rghh3g6kxqi" path="res://scenes/menus/credits.gd" id="1_iiqlc"]
+[ext_resource type="Theme" uid="uid://do4n5hhg5psa5" path="res://systems/ui/panel_container_theme.tres" id="2_b2mra"]
+[ext_resource type="Script" uid="uid://b1wy1j0imbhdh" path="res://systems/ui/ui_button.gd" id="3_b2mra"]
+
+[sub_resource type="Gradient" id="Gradient_fade"]
+colors = PackedColorArray(0.0627451, 0.0823529, 0.105882, 1, 0.0627451, 0.0823529, 0.105882, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fade"]
+gradient = SubResource("Gradient_fade")
+width = 4
+height = 96
+fill_to = Vector2(0, 1)
+
+[node name="Credits" type="Control" unique_id=1074541183]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_b2mra")
+script = ExtResource("1_iiqlc")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1943635218]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.0823529, 0.105882, 1)
+
+[node name="Layout" type="VBoxContainer" parent="." unique_id=1055886187]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="ScrollArea" type="Control" parent="Layout" unique_id=1542452336]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Layout/ScrollArea" unique_id=1752514725]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layout/ScrollArea/ScrollContainer" unique_id=523324855]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="TopSpacer" type="Control" parent="Layout/ScrollArea/ScrollContainer/VBoxContainer" unique_id=1886619730]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+
+[node name="Credits" type="RichTextLabel" parent="Layout/ScrollArea/ScrollContainer/VBoxContainer" unique_id=1846645412]
+layout_mode = 2
+theme_override_constants/line_separation = 10
+theme_override_font_sizes/normal_font_size = 22
+theme_override_font_sizes/bold_font_size = 22
+bbcode_enabled = true
+text = "Loading Credits..."
+fit_content = true
+scroll_active = false
+
+[node name="BottomSpacer" type="Control" parent="Layout/ScrollArea/ScrollContainer/VBoxContainer" unique_id=1504571735]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+
+[node name="FadeTop" type="TextureRect" parent="Layout/ScrollArea" unique_id=57944446]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 96.0
+grow_horizontal = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_fade")
+expand_mode = 1
+
+[node name="BottomBar" type="MarginContainer" parent="Layout" unique_id=1578274466]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_bottom = 26
+
+[node name="BackButton" type="Button" parent="Layout/BottomBar" unique_id=1935282420]
+custom_minimum_size = Vector2(260, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+text = "Back to Main Menu"
+script = ExtResource("3_b2mra")
+metadata/_custom_type_script = "uid://b1wy1j0imbhdh"
+
+[node name="FadeBottom" type="TextureRect" parent="." unique_id=2125067536]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -186.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_fade")
+expand_mode = 1
+flip_v = true

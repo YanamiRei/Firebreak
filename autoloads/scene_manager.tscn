@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bxkewqm828obh"]
+
+[ext_resource type="Script" uid="uid://35vkaa5orpjp" path="res://autoloads/scene_manager.gd" id="1_bjvek"]
+[ext_resource type="Texture2D" path="res://assets/ui/Loading Icons/Sprite/Loading Icons 1.png" id="2_spinner"]
+
+[sub_resource type="Gradient" id="Gradient_b11xn"]
+offsets = PackedFloat32Array(0.333, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ctmh5"]
+gradient = SubResource("Gradient_b11xn")
+width = 3840
+height = 2160
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spinner"]
+atlas = ExtResource("2_spinner")
+region = Rect2(0, 0, 14, 14)
+
+[node name="SceneManager" type="CanvasLayer" unique_id=183438196]
+script = ExtResource("1_bjvek")
+
+[node name="Fade" type="Control" parent="." unique_id=1482926009]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+
+[node name="TextureRect" type="TextureRect" parent="Fade" unique_id=1695783244]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1920.0
+offset_top = -1080.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+texture = SubResource("GradientTexture2D_ctmh5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Spinner" type="TextureRect" parent="Fade" unique_id=1695783299]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = SubResource("AtlasTexture_spinner")
+expand_mode = 1
+stretch_mode = 5
